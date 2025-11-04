@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Тату-салон "Сорока"</title>
+  <title>Студия пирсинга "Сорока"</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
@@ -101,7 +101,7 @@
 
     .gothic-title {
       font-family: 'UnifrakturMaguntia', cursive;
-      font-size: 4.5rem;
+      font-size: 3.5rem;
       color: var(--text);
       margin: 0;
       text-align: left;
@@ -110,7 +110,7 @@
     }
 
     .soroka-title {
-      font-size: 5.5rem;
+      font-size: 4.5rem;
       color: var(--accent);
     }
 
@@ -551,7 +551,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
     }
 
     .image-part img {
@@ -560,7 +559,14 @@
       object-fit: contain;
       border-radius: 8px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      filter: brightness(0.85) saturate(1.4) hue-rotate(-30deg);
+      transition: filter 0.4s ease;
     }
+
+    .image-part img:hover {
+      filter: brightness(1) saturate(1.6) hue-rotate(-40deg);
+    }
+
 
     .piercing-catalog {
       padding: 40px 30px;
@@ -987,7 +993,7 @@
       <p class="about-text">И еще немного про то, какой мы лучший салон.</p>
     </div>
     <div class="about-image">
-      [Изображение интерьера салона]
+      [Изображение интерьера Студияа]
     </div>
   </div>
 
@@ -1004,7 +1010,7 @@
           </div>
           <h3>Ивана Иванова</h3>
           <h6>Москва</h6>
-          <p>Специалист по реализму и портретным татуировкам</p>
+          <p>Специалист по пирсингам</p>
           <div class="buttons">
             <button class="primary">Написать</button>
             <button class="primary ghost">Работы</button>
@@ -1012,9 +1018,9 @@
           <div class="skills">
             <h6>Специализация</h6>
             <ul>
-              <li>Реализм</li>
-              <li>Портреты</li>
-              <li>Черно-белые</li>
+              <li>Пирсинги</li>
+              <li>Мои</li>
+              <li>Пирсинги</li>
             </ul>
           </div>
         </div>
@@ -1025,7 +1031,7 @@
           </div>
           <h3>Алексей Петров</h3>
           <h6>Москва</h6>
-          <p>Эксперт в стилях олдскул и ньюскул</p>
+          <p>Эксперт в множественных приколах</p>
           <div class="buttons">
             <button class="primary">Написать</button>
             <button class="primary ghost">Работы</button>
@@ -1033,9 +1039,8 @@
           <div class="skills">
             <h6>Специализация</h6>
             <ul>
-              <li>Олдскул</li>
-              <li>Ньюскул</li>
-              <li>Традиционные</li>
+              <li>Такие проколы</li>
+              <li>Сякие</li>
             </ul>
           </div>
         </div>
@@ -1046,7 +1051,7 @@
           </div>
           <h3>Мария Сидорова</h3>
           <h6>Москва</h6>
-          <p>Мастер минимализма и акварельных тату</p>
+          <p>Мастер интимного пирсинга</p>
           <div class="buttons">
             <button class="primary">Написать</button>
             <button class="primary ghost">Работы</button>
@@ -1054,9 +1059,8 @@
           <div class="skills">
             <h6>Специализация</h6>
             <ul>
-              <li>Минимализм</li>
-              <li>Акварель</li>
-              <li>Геометрия</li>
+              <li>Пирсинг</li>
+              <li>Интимный пирсинг</li>
             </ul>
           </div>
         </div>
@@ -1076,8 +1080,6 @@
             <h6>Специализация</h6>
             <ul>
               <li>Пирсинг</li>
-              <li>Сложные проекты</li>
-              <li>Перекрытия</li>
             </ul>
           </div>
         </div>
@@ -1192,27 +1194,21 @@
   <div class="content-box types">
     <div class="select-part">
       <div class="menu-item active">
-        Черно-белые тату
-      </div>
-      <div class="menu-item">
-        Цветные тату
-      </div>
-      <div class="menu-item">
         Пирсинг
       </div>
       <div class="menu-item">
-        Перекрытие
+        Уход
       </div>
       <div class="menu-item">
-        Минимализм
+        Пирсинг еще один
       </div>
       <div class="menu-item">
-        Реализм
+        Что-то еще
       </div>
     </div>
 
     <div class="image-part">
-      <img src="tild3163-3964-4031-b263-316432323066__40621352411_c821f370.jpg" alt="Пример работы">
+      <img src="blog-piercing-nose-1500x1000-1500x1000.jpg" alt="Пример работы">
     </div>
   </div>
 
