@@ -3,211 +3,338 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Тестик</title>
+  <title>Тату-салон "Сорока"</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
-    @import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
+    :root {
+      --primary: #8b0000;
+      --primary-dark: #5a0000;
+      --primary-light: #a83232;
+      --accent: #ff6b6b;
+      --text: #f5f5f5;
+      --text-secondary: #cccccc;
+      --bg-dark: #0a0a0a;
+      --bg-card: rgba(30, 30, 30, 0.85);
+      --border: rgba(139, 0, 0, 0.4);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
       padding: 0;
       min-height: 100vh;
-      background-color: black;
-      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 20c-5 0-10 5-10 10 0 3 2 6 5 7-2 1-3 3-3 5 0 3 2 6 6 6 1 0 2 0 2-1v-7h-2c-2 0-4-2-4-4s2-4 4-4 4 2 4 4v2h4v-2c0-2 2-4 4-4s4 2 4 4-2 4-4 4h-2v7c0 1 1 1 2 1 4 0 6-3 6-6 0-2-1-4-3-5 3-1 5-4 5-7 0-5-5-10-10-10z' fill='%23333' fill-opacity='0.3'/%3E%3C/svg%3E");
-      background-size: 80px 80px;
-      background-attachment: fixed;
-      font-family: Arial, sans-serif;
-      overflow-y: auto;
+      background-color: var(--bg-dark);
+      background-image:
+              radial-gradient(circle at 15% 50%, rgba(139, 0, 0, 0.1) 0%, transparent 20%),
+              radial-gradient(circle at 85% 30%, rgba(139, 0, 0, 0.1) 0%, transparent 20%),
+              radial-gradient(circle at 50% 80%, rgba(139, 0, 0, 0.05) 0%, transparent 20%);
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
     }
 
     .main-container {
-      width: 80%;
-      min-height: 100vh;
+      width: 90%;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 20px;
-      box-sizing: border-box;
+      padding: 20px 0;
     }
 
     .content-box {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid #444;
-      padding: 20px;
-      color: white;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(5px);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 30px;
+      color: var(--text);
+      margin-bottom: 30px;
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .content-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(139, 0, 0, 0.2);
     }
 
     .content-box:last-child {
       margin-bottom: 0;
     }
 
-    h1 {
-      margin: 0;
-      text-align: center;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
     .title_of_site {
-      min-height: 400px;
-    }
-
-    .medium {
-      min-height: 200px;
-    }
-
-    .short {
-      min-height: 100px;
+      min-height: 55vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      position: relative;
+      overflow: hidden;
     }
 
     .first-container {
-      position: relative;
-      background-image: url("IMG_5960.PNG");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: right bottom;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      filter: grayscale(100%);
+      background:
+              linear-gradient(135deg, rgba(10, 10, 10, 0.9) 1%, rgba(30, 0, 0, 0.8) 5%),
+              url("photo_2025-11-04 21.54.29.jpeg") no-repeat center;
+      background-size: cover;
+      border: none;
     }
 
     .title-block {
-      background-color: black;
-      border: 2px solid white;
-      margin: 0;
-      border-bottom: none;
-    }
-
-    .title-block:first-child {
-      border-bottom: none;
-      border-right: none;
+      background: rgba(0, 0, 0, 0.7);
+      border-left: 4px solid var(--primary);
+      padding: 20px 30px;
+      margin-bottom: 15px;
+      backdrop-filter: blur(5px);
+      width: 80%;
+      max-width: 500px;
     }
 
     .title-block:last-child {
-      border-top: none;
-      border-bottom: 2px solid white;
-      border-right: none;
+      margin-bottom: 0;
     }
 
     .gothic-title {
       font-family: 'UnifrakturMaguntia', cursive;
-      font-size: 4.5em;
-      color: white;
+      font-size: 4.5rem;
+      color: var(--text);
       margin: 0;
-      white-space: nowrap;
       text-align: left;
-      padding: 10px 20px;
+      line-height: 1.1;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     }
 
     .soroka-title {
-      font-size: 6.5em;
+      font-size: 5.5rem;
+      color: var(--accent);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about h2 {
+      font-family: 'UnifrakturMaguntia', cursive;
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      color: var(--accent);
+      grid-column: 1 / -1;
+      text-align: center;
+    }
+
+    .marquee {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      border-radius: 8px;
+      padding: 15px 0;
+      margin-bottom: 20px;
+      grid-column: 1 / -1;
+    }
+
+    .marquee__inner {
+      display: flex;
+      animation: marquee 20s linear infinite;
+      width: max-content;
+    }
+
+    .marquee__line {
+      flex-shrink: 0;
+      padding: 0 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 2rem;
+      text-transform: uppercase;
+      color: white;
+      white-space: nowrap;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .marquee:hover .marquee__inner {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .about-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    .about-image {
+      border-radius: 8px;
+      overflow: hidden;
+      height: 300px;
+      background: linear-gradient(45deg, var(--primary-dark), var(--primary-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
     }
 
     .masters-container {
-      flex-direction: column;
       padding: 0;
-      align-items: stretch;
+      overflow: hidden;
     }
 
     .masters-header {
       text-align: center;
+      padding: 30px;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      border-radius: 12px 12px 0 0;
     }
 
     .masters-header h2 {
       font-family: 'UnifrakturMaguntia', cursive;
-      background: rgba(96, 10, 10, 0.7);
-      border: 4px solid rgba(107, 9, 9, 0.9);
-      font-family: 'UnifrakturMaguntia', cursive;
-      font-size: 4.5em;
+      font-size: 3rem;
       color: white;
       margin: 0;
-      font-size: 1.8em;
-      font-weight: bold;
     }
 
     .masters-content {
-      background-color: black;
-      flex: 1;
-      padding: 20px;
+      padding: 30px;
+      overflow-x: auto;
     }
 
-    h2 {
-      margin-bottom: 10px;
-      margin-top: 0;
-      font-size: 3.5em;
-    }
-
-    .about {
-      font-family: 'UnifrakturMaguntia', cursive;
-      background: rgba(96, 10, 10, 0.7);
-      border: 4px solid rgba(107, 9, 9, 0.9);
+    .masters-scroll {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5em;
-      padding: 2px;
-    }
-
-    h3 {
-      margin: 10px 0;
-    }
-
-    h6 {
-      margin: 5px 0;
-      text-transform: uppercase;
-    }
-
-    p {
-      font-size: 14px;
-      line-height: 21px;
+      gap: 25px;
+      min-width: min-content;
     }
 
     .card-container {
-      background-color: rgba(30, 30, 30, 0.91);
-      border-radius: 5px;
-      box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
-      color: #B3B8CD;
-      padding-top: 30px;
+      background: var(--bg-card);
+      border-radius: 12px;
+      box-shadow: 0 10px 20px -10px rgba(0,0,0,0.75);
+      color: var(--text-secondary);
+      padding: 30px 20px 20px;
       position: relative;
-      width: 350px;
+      width: 300px;
       max-width: 100%;
       text-align: center;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+      border: 1px solid var(--border);
     }
 
-
+    .card-container:hover {
+      transform: translateY(-10px);
+    }
 
     .card-container .round {
-      border: 1px solid rgba(96, 10, 10, 0.7);
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      padding: 7px;
+      border: 3px solid var(--primary);
+      padding: 5px;
+      margin: 0 auto 15px;
+      overflow: hidden;
+    }
+
+    .card-container .round img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .card-container h3 {
+      font-size: 1.5rem;
+      margin: 10px 0 5px;
+      color: var(--text);
+    }
+
+    .card-container h6 {
+      font-size: 0.9rem;
+      margin: 0 0 15px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .card-container p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
     }
 
     button.primary {
-      background-color: rgba(96, 10, 10, 0.7);
-      border: 1px solid rgba(145, 0, 0, 0.7);
-      border-radius: 3px;
-      color: rgba(0, 0, 0, 0.45);
-      font-family: Montserrat, sans-serif;
+      background: var(--primary);
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-family: 'Montserrat', sans-serif;
       font-weight: 500;
-      padding: 10px 25px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button.primary:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
     }
 
     button.primary.ghost {
-      background-color: transparent;
-      color: rgba(96, 10, 10, 0.7);
+      background: transparent;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+    }
+
+    button.primary.ghost:hover {
+      background: rgba(139, 0, 0, 0.1);
     }
 
     .skills {
-      background-color: rgba(0, 0, 0, 0.9);
+      background: rgba(0, 0, 0, 0.5);
       text-align: left;
       padding: 15px;
-      margin-top: 30px;
+      border-radius: 8px;
+    }
+
+    .skills h6 {
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+      color: var(--text);
     }
 
     .skills ul {
@@ -217,423 +344,622 @@
     }
 
     .skills ul li {
-      border: 1px solid rgba(96, 10, 10, 0.7);
-      border-radius: 2px;
       display: inline-block;
-      font-size: 12px;
-      margin: 0 7px 7px 0;
-      padding: 7px;
-    }
-
-    .masters-content {
-      background-color: black;
-      flex: 1;
-      padding: 20px;
-      overflow-x: auto;
-      display: flex;
-      gap: 20px;
-    }
-
-    .masters-scroll {
-      display: flex;
-      gap: 20px;
-      min-width: min-content;
-    }
-
-    .card-container {
-      background-color: rgba(0, 0, 0, 0.87);
-      border-radius: 5px;
-      box-shadow: 0px 10px 20px -10px rgba(145, 0, 0, 0.7);
-      color: #B3B8CD;
-      padding-top: 30px;
-      position: relative;
-      width: 350px;
-      max-width: 100%;
-      text-align: center;
-      flex-shrink: 0;
+      background: rgba(139, 0, 0, 0.2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      margin: 0 5px 5px 0;
+      padding: 5px 10px;
     }
 
     .data {
-      display: flex;
-      width: 100%;
-      gap: 300px;
-      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 30px;
     }
 
     .calendar-section {
-      width: 20%;
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .calendar {
+      width: 100%;
+    }
+
+    .calendar-header {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .calendar-header h3 {
+      font-size: 1.5rem;
+      color: var(--text);
+    }
+
+    .calendar-nav {
+      display: flex;
+      gap: 10px;
+    }
+
+    .calendar-nav button {
+      background: var(--primary);
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+    }
+
+    .calendar-day {
+      text-align: center;
+      padding: 10px 5px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .calendar-date {
+      text-align: center;
+      padding: 12px 5px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .calendar-date:hover {
+      background: rgba(139, 0, 0, 0.2);
+    }
+
+    .calendar-date.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    .calendar-date.disabled {
+      color: #555;
+      cursor: not-allowed;
     }
 
     .booking-section {
-      width: 30%;
-      background: rgba(128, 128, 128, 0.3);
-      color: white;
-      padding: 20px;
-      border-radius: 5px;
-      backdrop-filter: blur(5px);
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 25px;
+      border: 1px solid var(--border);
     }
 
-    section.mounth {
-      width: 100%;
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    .booking-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+      margin-bottom: 25px;
     }
 
-    /****/
-    /* Left Bar */
-    /****/
-    nav.sections {
-      overflow: hidden;
-      display: block;
-      float: left;
-      width: 82px; height: auto;
-      margin-right: 20px;
-      background: #3bc1f8;
-      box-shadow: 0 1px 1px rgba(78,200,247,.35);
-      border-radius: 5px;
-      text-aling: center;
-    }
-    nav.sections li a {
-      display: block;
-      width: 100%; height: 82px;
-    }
-    nav.sections li:hover,
-    nav.sections li.active {
-      background: #00aced;
-      box-shadow: inset 0 1px 1px rgba(0,0,0,.07);
-    }
-    nav.sections li.notes a,
-    nav.sections li.calendar a,
-    nav.sections li.settings a {
-      background: url('http://ysfu.net/sprite.png') no-repeat;
-    }
-    nav.sections li.notes a {
-      background-position: 25px 25px;
-    }
-    nav.sections li.calendar a {
-      background-position: 25px -57px;
-    }
-    nav.sections li.settings a {
-      background-position: 25px -139px;
+    .booking-header h3 {
+      font-size: 1.8rem;
+      margin: 0 0 10px 0;
+      color: var(--text);
     }
 
-    /****/
-    /* Calendar */
-    /****/
-    section.mounth {
-      overflow: hidden;
-      display: block;
-      float: left;
-      width: 420px; height: auto;
-      background: #fff;
-      box-shadow: 0 1px 1px rgba(0,0,0,.25);
-      border-radius: 5px;
+    .booking-date {
+      font-size: 1.1rem;
+      color: var(--accent);
+      font-weight: 500;
     }
-    header {
-      position: relative;
-      display: block;
-      height: 80px;
-      background: #e9eaf0;
-      box-shadow: inset 0 -1px 0 rgba(0,0,0,.06);
-    }
-    header h1 {
-      margin-left: 30px;
-      line-height: 80px;
-    }
-    header nav {
-      overflow: hidden;
-      position: absolute;
-      display: block;
-      right: 30px; top: 30px;
-    }
-    header nav span {
-      display: block;
-      float: left;
-      width: 11px; height: 20px;
-      margin-left: 30px;
-      cursor: pointer;
-      background: url('http://ysfu.net/sprite.png') no-repeat;
-    }
-    header nav span:first-of-type {
-      background-position: -77px -4px;
-    }
-    header nav span:first-of-type:hover {
-      background-position: -106px -4px;
-    }
-    header nav span:last-of-type {
-      background-position: -90px -4px;
-    }
-    header nav span:last-of-type:hover {
-      background-position: -119px -4px;
-    }
-
-    article {padding: 6px 0 25px 25px}
-    article b,
-    article span {
-      display: block;
-      float: left;
-      width: 45px; height: 45px;
-      margin: 4px;
-      text-align: center;
-    }
-    article b {
-      font: 600 16px/45px 'Open Sans';
-      color: #91d9ff;
-    }
-    article span {
-      font: 300 19px/45px 'Open Sans';
-      color: #4c5373;
-      box-shadow: inset 0 0 1px 1px #d9dce5;
-      border-radius: 2px;
-      cursor: pointer;
-    }
-    article span.disable {
-      color: #b6bacc;
-      box-shadow: inset 0 0 1px 1px #f3f4f7;
-    }
-    article span:not(.disable):hover {
-      background: #cdd0dd;
-      box-shadow:
-              inset 0 0 1px 1px #d9dce5,
-              0 1px 3px -1px #cdd0dd;
-    }
-    article span:not(.disable):active {
-      background: #b9becf;
-      box-shadow:
-              inset 0 1px 2px rgba(0,0,0,.18),
-              0 0 0 #cdd0dd;
-    }
-    article span.active,
-    article span.active:hover,
-    article span.active:active {
-      color: #fff;
-      box-shadow:
-              inset 0 0 1px 1px #ff8263,
-              0 1px 3px -1px #ff8263;
-      background: #ff8263;
-    }
-    article div {
-      display: block;
-      overflow: hidden;
-      clear: both;
-    }
-
-
 
     .booking-slots {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 15px;
-      margin-top: 20px;
     }
 
     .time-slot {
-      background: linear-gradient(135deg, rgba(96, 10, 10, 0.8), rgba(145, 0, 0, 0.6));
-      border: 2px solid rgba(255, 255, 255, 0.3);
+      background: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(90, 0, 0, 0.2));
+      border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 15px;
+      padding: 18px;
       text-align: center;
       transition: all 0.3s ease;
       cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
     .time-slot:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(255, 0, 0, 0.3);
-      border-color: rgba(255, 255, 255, 0.6);
+      box-shadow: 0 8px 20px rgba(139, 0, 0, 0.3);
+      border-color: var(--primary);
     }
 
     .time-slot.popular {
-      background: linear-gradient(135deg, rgba(255, 100, 0, 0.8), rgba(255, 50, 0, 0.6));
-      border: 2px solid rgba(255, 200, 0, 0.5);
+      background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(139, 0, 0, 0.2));
+      border: 1px solid rgba(255, 107, 107, 0.5);
     }
 
     .slot-time {
-      font-size: 1.3em;
-      font-weight: bold;
-      margin-bottom: 5px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
     }
 
     .slot-master {
-      font-size: 0.9em;
+      font-size: 0.9rem;
       opacity: 0.9;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      color: var(--text-secondary);
     }
 
     .slot-tag {
       display: inline-block;
-      background: rgba(0,0,0,0.3);
-      padding: 3px 8px;
-      border-radius: 12px;
-      font-size: 0.8em;
+      background: rgba(139, 0, 0, 0.5);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
     }
-
-    .booking-header {
-      border-bottom: 2px solid rgba(255,255,255,0.2);
-      padding-bottom: 15px;
-      margin-bottom: 20px;
-    }
-
-    .booking-header h3 {
-      font-size: 2em;
-      margin: 0 0 10px 0;
-      color: #fff;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-
-    .booking-date {
-      font-size: 1.2em;
-      color: #ff6b6b;
-      font-weight: bold;
-    }
-
 
     .types {
-      display: flex;
-      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 0;
       padding: 0;
-      background-color: black;
+      overflow: hidden;
+      height: 500px;
+    }
+
+    .select-part {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu-item {
+      padding: 18px 20px;
+      color: white;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .menu-item:hover {
+      background: rgba(255, 255, 255, 0.1);
+      padding-left: 25px;
+    }
+
+    .menu-item.active {
+      background: rgba(255, 255, 255, 0.15);
+      border-left: 4px solid white;
     }
 
     .image-part {
-      flex: 1;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 5px;
+      padding: 20px;
     }
 
     .image-part img {
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
-    .select-part {
-      width: 20%;
-      order: 2;
+    .piercing-catalog {
+      padding: 40px 30px;
+      overflow: hidden;
     }
 
-
-    ul {
-      list-style:none;
-      margin:0;
-      padding:0;
-      width:100%;
-      box-shadow: 0 0 5px #111;
+    .catalog-header {
+      text-align: center;
+      margin-bottom: 40px;
     }
 
-    ul li label {
-      background: rgba(96, 10, 10, 0.7);
-      border-top:1px solid rgba(145, 0, 0, 0.7);
-      border-bottom:1px solid rgba(70, 0, 0, 0.9);
-      color: #fff;
-      text-shadow: 0 1px 1px #000;
-      letter-spacing: 0.09em;
-      background: linear-gradient(to bottom, rgba(96, 10, 10, 0.8), rgba(70, 0, 0, 0.9));
+    .catalog-header h2 {
+      font-family: 'UnifrakturMaguntia', cursive;
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 10px;
     }
 
-    ul li input[type='checkbox'] {
+    .catalog-header p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+    }
+
+    .catalog-scroll-container {
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    .catalog-track {
+      display: flex;
+      gap: 25px;
+      padding: 20px 10px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .catalog-track::-webkit-scrollbar {
       display: none;
     }
 
-    ul li label {
-      display:block;
-      padding:12px;
-      width:100%;
+    .catalog-track:hover .piercing-item {
+      opacity: 0.7;
     }
 
-    ul li span {
-      display:inline;
-      float:right;
-      background:rgba(70, 0, 0, 0.7);
-      border:1px solid rgba(96, 10, 10, 0.7);
-      border-bottom:1px solid rgba(145, 0, 0, 0.7);
-      padding:4px 6px;
-      font-size:10px;
-      border-radius: 12px;
-      box-shadow: inset 0 0 10px #111;
-      position:relative;
+    .catalog-track:hover .piercing-item:hover {
+      opacity: 1;
     }
 
-    ul li label:hover {
-      background: rgba(145, 0, 0, 0.7);
-      background: linear-gradient(to bottom, rgba(145, 0, 0, 0.7), rgba(96, 10, 10, 0.8));
-    }
-
-    ul li label:hover span {
-      background:rgba(96, 10, 10, 0.8);
-    }
-
-    ul li input[type='checkbox']:checked ~ label {
-      background: rgba(145, 0, 0, 0.9);
-      border-top:1px solid rgba(200, 0, 0, 0.7);
-      border-bottom:1px solid rgba(96, 10, 10, 0.9);
-      background: linear-gradient(to bottom, rgba(145, 0, 0, 0.9), rgba(96, 10, 10, 0.9));
-    }
-
-    ul li input[type='checkbox']:checked ~ label span {
-      background: rgba(70, 0, 0, 0.9);
-      border-top:1px solid rgba(96, 10, 10, 0.9);
-      border-bottom:1px solid rgba(145, 0, 0, 0.7);
-      box-shadow: inset 0 0 5px #111;
-    }
-
-    ul li input[type='checkbox']:checked ~ .options {
-      height: auto;
-      display:block;
-      min-height:40px;
-      max-height:400px;
-    }
-
-    ul ul {
-      background:rgba(0, 0, 0, 0.8);
-      margin:0;
-      padding:0;
-      box-shadow: inset 0 2px 2px rgba(0,0,0,0.5);
-    }
-
-    ul ul li a {
-      display:block;
-      padding:6px 12px;
-      color:#ccc;
-      text-decoration:none;
-    }
-
-    ul ul li a:hover {
-      color:#fff;
-      background: rgba(96, 10, 10, 0.5);
-    }
-
-    ul ul li a span {
-      color:#ccc;
-      background:none;
-      border:1px solid #444;
-      box-shadow: none;
-    }
-
-    ul ul li {
-      border-bottom:1px solid #444;
-    }
-
-    ul ul li:first-child {
-      padding-top:6px;
-    }
-
-    ul ul li:last-child {
-      padding-bottom:6px;
-      border:0;
-    }
-
-    .options {
-      height: 0;
-      display: block;
+    .piercing-item {
+      flex: 0 0 320px;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 25px;
+      transition: all 0.4s ease;
+      position: relative;
       overflow: hidden;
     }
+
+    .piercing-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.1), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .piercing-item:hover::before {
+      left: 100%;
+    }
+
+    .piercing-item:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(139, 0, 0, 0.4);
+      border-color: var(--primary);
+    }
+
+    .scroll-nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .scroll-btn {
+      background: var(--primary);
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .scroll-btn:hover {
+      background: var(--primary-light);
+      transform: scale(1.1);
+    }
+
+    .scroll-btn:active {
+      transform: scale(0.95);
+    }
+
+    .item-image {
+      position: relative;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .image-placeholder {
+      font-size: 4rem;
+      opacity: 0.7;
+      transition: transform 0.3s ease;
+    }
+
+    .piercing-item:hover .image-placeholder {
+      transform: scale(1.1) rotate(10deg);
+    }
+
+    .item-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--primary);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .item-badge.new {
+      background: #ff6b6b;
+    }
+
+    .item-badge.popular {
+      background: #ffa726;
+    }
+
+    .item-content h3 {
+      font-size: 1.4rem;
+      color: var(--text);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .item-desc {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    .item-meta {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .item-meta span {
+      background: rgba(139, 0, 0, 0.2);
+      border: 1px solid var(--border);
+      padding: 4px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .item-price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+
+    .catalog-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 30px;
+    }
+
+    .materials-info h4 {
+      color: var(--text);
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+
+    .materials-list {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .material-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-secondary);
+    }
+
+    .material-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .material-dot.titanium {
+      background: #6c757d;
+    }
+
+    .material-dot.bioplast {
+      background: #20c997;
+    }
+
+    .material-dot.gold {
+      background: #ffd700;
+    }
+
+    .material-dot.steel {
+      background: #adb5bd;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .piercing-item {
+      animation: slideIn 0.6s ease forwards;
+    }
+
+    .piercing-item:nth-child(2) { animation-delay: 0.1s; }
+    .piercing-item:nth-child(3) { animation-delay: 0.2s; }
+    .piercing-item:nth-child(4) { animation-delay: 0.3s; }
+    .piercing-item:nth-child(5) { animation-delay: 0.4s; }
+    .piercing-item:nth-child(6) { animation-delay: 0.5s; }
+
+    .magpie-container {
+      background: linear-gradient(135deg, rgba(30, 0, 0, 0.8), rgba(60, 0, 0, 0.6));
+      border: 2px solid var(--primary);
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .magpie-character {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .magpie {
+      font-size: 8rem;
+      filter: grayscale(0.3);
+      animation: float 3s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+      }
+      50% {
+        transform: translateY(-10px) rotate(5deg);
+      }
+    }
+
+    .speech-bubble {
+      position: relative;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 25px;
+      max-width: 400px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      animation: bubblePop 0.6s ease-out;
+    }
+
+    @keyframes bubblePop {
+      0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .bubble-content h4 {
+      color: var(--primary-dark);
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .bubble-content p {
+      color: #333;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 18px;
+      background: rgba(139, 0, 0, 0.1);
+      border: 2px solid transparent;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      color: #333;
+    }
+
+    .social-link:hover {
+      background: rgba(139, 0, 0, 0.15);
+      border-color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    .social-link.telegram:hover {
+      background: rgba(0, 136, 204, 0.1);
+      border-color: #0088cc;
+    }
+
+    .social-icon {
+      font-size: 1.5rem;
+      width: 30px;
+      text-align: center;
+    }
+
+    .social-text {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .bubble-arrow {
+      position: absolute;
+      left: -15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-right: 15px solid rgba(255, 255, 255, 0.95);
+    }
+
+    .magpie::after {
+      content: '';
+      position: absolute;
+      top: 120px;
+      right: 180px;
+      width: 80px;
+      height: 40px;
+      background: #ff6b6b;
+      border-radius: 50%;
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% {
+        opacity: 1;
+      }
+      51%, 100% {
+        opacity: 0;
+      }
+    }
+
+
   </style>
 </head>
 <body>
@@ -647,175 +973,192 @@
     </div>
   </div>
 
-
   <div class="content-box about">
-    <h2>Кто мы?</h2>
-    <div> Какой-то текст</div>
-    <div> Какой-то текст длинный</div>
-    <div> Какой-то текст длинный</div>
-    <div> Какой-то текст длинный</div>
-    <div> Какой-то текст красивый и прекрасный</div>
-    <div> Какой-то текст закончился</div>
+    <div class="marquee">
+      <div class="marquee__inner">
+        <p class="marquee__line">Кто мы? • Тату-салон "Сорока" • Кто мы? • Тату-салон "Сорока" •</p>
+        <p class="marquee__line">Кто мы? • Тату-салон "Сорока" • Кто мы? • Тату-салон "Сорока" •</p>
+      </div>
+    </div>
 
+    <div class="about-content">
+      <p class="about-text">Текст длинный очень.</p>
+      <p class="about-text">Самый самый самый самый самый лучший салон.</p>
+      <p class="about-text">И еще немного про то, какой мы лучший салон.</p>
+    </div>
+    <div class="about-image">
+      [Изображение интерьера салона]
+    </div>
   </div>
+
   <div class="content-box masters-container">
     <div class="masters-header">
-      <h2>МАСТЕРА</h2>
+      <h2>НАШИ МАСТЕРА</h2>
     </div>
 
     <div class="masters-content">
       <div class="masters-scroll">
         <div class="card-container">
-          <img class="round" src="https://randomuser.me/api/portraits/women/79.jpg" alt="user" />
+          <div class="round">
+            <img src="https://randomuser.me/api/portraits/women/79.jpg" alt="Ивана Иванова">
+          </div>
           <h3>Ивана Иванова</h3>
           <h6>Москва</h6>
-          <p>Пирсинг мастер <br/> и специалист по пирсингу</p>
+          <p>Специалист по реализму и портретным татуировкам</p>
           <div class="buttons">
             <button class="primary">Написать</button>
-            <button class="primary ghost">Посмотреть работы</button>
+            <button class="primary ghost">Работы</button>
           </div>
           <div class="skills">
-            <h6>Сильные стороны</h6>
+            <h6>Специализация</h6>
             <ul>
-              <li>Пирсинг</li>
-              <li>Иной пирсинг</li>
+              <li>Реализм</li>
+              <li>Портреты</li>
+              <li>Черно-белые</li>
             </ul>
           </div>
         </div>
 
         <div class="card-container">
-          <img class="round" src="https://randomuser.me/api/portraits/women/79.jpg" alt="user" />
-          <h3>Ивана Иванова</h3>
+          <div class="round">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Алексей Петров">
+          </div>
+          <h3>Алексей Петров</h3>
           <h6>Москва</h6>
-          <p>Пирсинг мастер <br/> и специалист по пирсингу</p>
+          <p>Эксперт в стилях олдскул и ньюскул</p>
           <div class="buttons">
             <button class="primary">Написать</button>
-            <button class="primary ghost">Посмотреть работы</button>
+            <button class="primary ghost">Работы</button>
           </div>
           <div class="skills">
-            <h6>Сильные стороны</h6>
+            <h6>Специализация</h6>
             <ul>
-              <li>Пирсинг</li>
-              <li>Иной пирсинг</li>
+              <li>Олдскул</li>
+              <li>Ньюскул</li>
+              <li>Традиционные</li>
             </ul>
           </div>
         </div>
 
         <div class="card-container">
-          <img class="round" src="https://randomuser.me/api/portraits/women/79.jpg" alt="user" />
-          <h3>Ивана Иванова</h3>
+          <div class="round">
+            <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Мария Сидорова">
+          </div>
+          <h3>Мария Сидорова</h3>
           <h6>Москва</h6>
-          <p>Пирсинг мастер <br/> и специалист по пирсингу</p>
+          <p>Мастер минимализма и акварельных тату</p>
           <div class="buttons">
             <button class="primary">Написать</button>
-            <button class="primary ghost">Посмотреть работы</button>
+            <button class="primary ghost">Работы</button>
           </div>
           <div class="skills">
-            <h6>Сильные стороны</h6>
+            <h6>Специализация</h6>
             <ul>
-              <li>Пирсинг</li>
-              <li>Иной пирсинг</li>
+              <li>Минимализм</li>
+              <li>Акварель</li>
+              <li>Геометрия</li>
             </ul>
           </div>
         </div>
 
         <div class="card-container">
-          <img class="round" src="https://randomuser.me/api/portraits/women/79.jpg" alt="user" />
-          <h3>Ивана Иванова</h3>
+          <div class="round">
+            <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="Дмитрий Козлов">
+          </div>
+          <h3>Дмитрий Козлов</h3>
           <h6>Москва</h6>
-          <p>Пирсинг мастер <br/> и специалист по пирсингу</p>
+          <p>Специалист по пирсингу и сложным проектам</p>
           <div class="buttons">
             <button class="primary">Написать</button>
-            <button class="primary ghost">Посмотреть работы</button>
+            <button class="primary ghost">Работы</button>
           </div>
           <div class="skills">
-            <h6>Сильные стороны</h6>
+            <h6>Специализация</h6>
             <ul>
               <li>Пирсинг</li>
-              <li>Иной пирсинг</li>
+              <li>Сложные проекты</li>
+              <li>Перекрытия</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
-
-    </div>
+  </div>
 
   <div class="content-box data">
     <div class="calendar-section">
-      <section class="mounth" id="january">
-        <header>
-          <h1>JANUARY 2013</h1>
-          <nav role='padigation'>
-            <span></span>
-            <span></span>
-          </nav>
-        </header>
-
-        <article>
-          <div class="days">
-            <b>SU</b>
-            <b>MO</b>
-            <b>TU</b>
-            <b>WE</b>
-            <b>TH</b>
-            <b>FR</b>
-            <b>SA</b>
+      <div class="calendar">
+        <div class="calendar-header">
+          <h3>Январь 2023</h3>
+          <div class="calendar-nav">
+            <button>&lt;</button>
+            <button>&gt;</button>
           </div>
-          <div class="dates">
-            <span class="disable">30</span>
-            <span class="disable">31</span>
+        </div>
+        <div class="calendar-grid">
+          <div class="calendar-day">Пн</div>
+          <div class="calendar-day">Вт</div>
+          <div class="calendar-day">Ср</div>
+          <div class="calendar-day">Чт</div>
+          <div class="calendar-day">Пт</div>
+          <div class="calendar-day">Сб</div>
+          <div class="calendar-day">Вс</div>
 
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>5</span>
-            <span>6</span>
-            <span>7</span>
-            <span>8</span>
-            <span>9</span>
-            <span>10</span>
-            <span>11</span>
-            <span>12</span>
-            <span>13</span>
-            <span>14</span>
-            <span>15</span>
-            <span class="active">16</span>
-            <span>17</span>
-            <span>18</span>
-            <span>19</span>
-            <span>20</span>
-            <span>21</span>
-            <span>22</span>
-            <span>23</span>
-            <span>24</span>
-            <span>25</span>
-            <span>26</span>
-            <span>27</span>
-            <span>28</span>
-            <span>29</span>
-            <span>30</span>
-            <span>31</span>
+          <div class="calendar-date disabled">26</div>
+          <div class="calendar-date disabled">27</div>
+          <div class="calendar-date disabled">28</div>
+          <div class="calendar-date disabled">29</div>
+          <div class="calendar-date disabled">30</div>
+          <div class="calendar-date disabled">31</div>
+          <div class="calendar-date">1</div>
 
-            <span class="disable">1</span>
-            <span class="disable">2</span>
-            <span class="disable">3</span>
-            <span class="disable">4</span>
-            <span class="disable">5</span>
-            <span class="disable">6</span>
-            <span class="disable">7</span>
-            <span class="disable">8</span>
-            <span class="disable">9</span>
-          </div>
-        </article>
-      </section>
+          <div class="calendar-date">2</div>
+          <div class="calendar-date">3</div>
+          <div class="calendar-date">4</div>
+          <div class="calendar-date">5</div>
+          <div class="calendar-date">6</div>
+          <div class="calendar-date">7</div>
+          <div class="calendar-date">8</div>
+
+          <div class="calendar-date">9</div>
+          <div class="calendar-date">10</div>
+          <div class="calendar-date">11</div>
+          <div class="calendar-date">12</div>
+          <div class="calendar-date">13</div>
+          <div class="calendar-date">14</div>
+          <div class="calendar-date">15</div>
+
+          <div class="calendar-date active">16</div>
+          <div class="calendar-date">17</div>
+          <div class="calendar-date">18</div>
+          <div class="calendar-date">19</div>
+          <div class="calendar-date">20</div>
+          <div class="calendar-date">21</div>
+          <div class="calendar-date">22</div>
+
+          <div class="calendar-date">23</div>
+          <div class="calendar-date">24</div>
+          <div class="calendar-date">25</div>
+          <div class="calendar-date">26</div>
+          <div class="calendar-date">27</div>
+          <div class="calendar-date">28</div>
+          <div class="calendar-date">29</div>
+
+          <div class="calendar-date">30</div>
+          <div class="calendar-date">31</div>
+          <div class="calendar-date disabled">1</div>
+          <div class="calendar-date disabled">2</div>
+          <div class="calendar-date disabled">3</div>
+          <div class="calendar-date disabled">4</div>
+          <div class="calendar-date disabled">5</div>
+        </div>
+      </div>
     </div>
 
     <div class="booking-section">
       <div class="booking-header">
         <h3>СВОБОДНЫЕ ЗАПИСИ</h3>
-        <div class="booking-date">Выбрана дата: 16 января 2013</div>
+        <div class="booking-date">Выбрана дата: 16 января 2023</div>
       </div>
 
       <div class="booking-slots">
@@ -848,52 +1191,181 @@
 
   <div class="content-box types">
     <div class="select-part">
-      <ul>
-        <li class="block">
-          <input type="checkbox" name="item" id="item1" />
-          <label for="item1">Черно-белые тату <span>24</span></label>
-          <ul class="options">
-            <li><a href="#">Минимализм</a></li>
-            <li><a href="#">Лайнворк</a></li>
-            <li><a href="#">Геометрия</a></li>
-          </ul>
-        </li>
-        <li class="block">
-          <input type="checkbox" name="item" id="item2" />
-          <label for="item2">Цветные тату <span>34</span></label>
-          <ul class="options">
-            <li><a href="#">Реализм</a></li>
-            <li><a href="#">Олд скул</a></li>
-            <li><a href="#">Акварель</a></li>
-          </ul>
-        </li>
-        <li class="block">
-          <input type="checkbox" name="item" id="item3" />
-          <label for="item3">Пирсинг <span>18</span></label>
-          <ul class="options">
-            <li><a href="#">Уши</a></li>
-            <li><a href="#">Лицо</a></li>
-            <li><a href="#">Тело</a></li>
-          </ul>
-        </li>
-        <li class="block">
-          <input type="checkbox" name="item" id="item4" />
-          <label for="item4">Перекрытие <span>7</span></label>
-          <ul class="options">
-            <li><a href="#">Лазерное удаление</a></li>
-            <li><a href="#">Художественное</a></li>
-          </ul>
-        </li>
-      </ul>
+      <div class="menu-item active">
+        Черно-белые тату
+      </div>
+      <div class="menu-item">
+        Цветные тату
+      </div>
+      <div class="menu-item">
+        Пирсинг
+      </div>
+      <div class="menu-item">
+        Перекрытие
+      </div>
+      <div class="menu-item">
+        Минимализм
+      </div>
+      <div class="menu-item">
+        Реализм
+      </div>
     </div>
 
     <div class="image-part">
       <img src="tild3163-3964-4031-b263-316432323066__40621352411_c821f370.jpg" alt="Пример работы">
     </div>
-  </div>  </div>
+  </div>
+
+  <div class="content-box piercing-catalog">
+    <div class="catalog-header">
+      <h2>АССОРТИМЕНТ ПИРСИНГА</h2>
+      <p>Очаровательные уркашения</p>
+    </div>
+
+    <div class="catalog-scroll-container">
+      <div class="catalog-track" id="catalogTrack">
+        <div class="piercing-item">
+          <div class="item-image">
+            <div class="image-placeholder">💎</div>
+            <div class="item-badge">Хит</div>
+          </div>
+          <div class="item-content">
+            <h3>Кольца-сегменты</h3>
+            <p class="item-desc">Гипоаллергенные титановые кольца с сегментной застежкой</p>
+            <div class="item-meta">
+              <span class="material">Титан</span>
+              <span class="size">8-12mm</span>
+            </div>
+            <div class="item-price">от 1 200 ₽</div>
+            <button class="primary">Выбрать размер</button>
+          </div>
+        </div>
+
+        <div class="piercing-item">
+          <div class="item-image">
+            <div class="image-placeholder">✨</div>
+            <div class="item-badge new">Новинка</div>
+          </div>
+          <div class="item-content">
+            <h3>Лабреты с резьбой</h3>
+            <p class="item-desc">Прямые штанги с декоративными насадками</p>
+            <div class="item-meta">
+              <span class="material">Биопласт</span>
+              <span class="size">6-16mm</span>
+            </div>
+            <div class="item-price">от 800 ₽</div>
+            <button class="primary">Смотреть дизайны</button>
+          </div>
+        </div>
+
+        <div class="piercing-item">
+          <div class="item-image">
+            <div class="image-placeholder">🔮</div>
+          </div>
+          <div class="item-content">
+            <h3>Нострилы</h3>
+            <p class="item-desc">Изогнутые украшения для крыла носа</p>
+            <div class="item-meta">
+              <span class="material">Сталь</span>
+              <span class="size">0.8-1.2mm</span>
+            </div>
+            <div class="item-price">от 1 500 ₽</div>
+            <button class="primary">Подробнее</button>
+          </div>
+        </div>
+
+        <div class="piercing-item">
+          <div class="item-image">
+            <div class="image-placeholder">🌟</div>
+            <div class="item-badge popular">Популярное</div>
+          </div>
+          <div class="item-content">
+            <h3>Индастриалы</h3>
+            <p class="item-desc">Длинные штанги для соединения проколов</p>
+            <div class="item-meta">
+              <span class="material">Титан</span>
+              <span class="size">32-40mm</span>
+            </div>
+            <div class="item-price">от 2 000 ₽</div>
+            <button class="primary">Заказать</button>
+          </div>
+        </div>
+
+        <div class="piercing-item">
+          <div class="item-image">
+            <div class="image-placeholder">💫</div>
+          </div>
+          <div class="item-content">
+            <h3>Микродермалы</h3>
+            <p class="item-desc">Импланты для поверхностного пирсинга</p>
+            <div class="item-meta">
+              <span class="material">Титан</span>
+              <span class="size">1.2mm</span>
+            </div>
+            <div class="item-price">от 3 500 ₽</div>
+            <button class="primary">Консультация</button>
+          </div>
+        </div>
+
+        <div class="piercing-item">
+          <div class="item-image">
+            <div class="image-placeholder">🦋</div>
+            <div class="item-badge">Бестселлер</div>
+          </div>
+          <div class="item-content">
+            <h3>Хеликсы</h3>
+            <p class="item-desc">Украшения для хряща уха</p>
+            <div class="item-meta">
+              <span class="material">Золото 585</span>
+              <span class="size">6-10mm</span>
+            </div>
+            <div class="item-price">от 5 000 ₽</div>
+            <button class="primary">В наличии</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-nav">
+        <button class="scroll-btn" onclick="scrollCatalog(-320)">‹</button>
+        <button class="scroll-btn" onclick="scrollCatalog(320)">›</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function scrollCatalog(distance) {
+      const track = document.getElementById('catalogTrack');
+      track.scrollBy({
+        left: distance,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+
+  <div class="content-box magpie-container">
+    <div class="magpie-character">
+      <div class="magpie">
+        <img src="IMG_5960.PNG">
+      </div>
+      <div class="speech-bubble">
+        <div class="bubble-content">
+          <h4>Сорока-новостей принесла!</h4>
+          <p>Подписывайся на наши соцсети</p>
+          <div class="social-links">
+            <a href="" class="social-link telegram" >
+              <span class="social-icon">✈️</span>
+              <span class="social-text">Телеграм-канал</span>
+            </a>
+          </div>
+          <div class="bubble-arrow"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
 
+</div>
 </body>
 </html>
